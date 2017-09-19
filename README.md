@@ -11,7 +11,7 @@ A php backdoor complete a python3 attacker client.
  7. delete folder
  8. Generate file uploader   
  9. ls
-10. run shell commands(check first)
-11. check if shell commands can run
-12. get OSdata
-13. generate new payload
+ 10. run shell commands(check first)
+ 11. check if shell commands can run
+ 12. get OSdata
+ 13. generate new payload
