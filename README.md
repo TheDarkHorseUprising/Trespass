@@ -1,7 +1,7 @@
 # Trespass
 A php backdoor complete a python 3 attacker client.
 
-#Options-You can view these at any time by typing help.
+# Options-You can view these at any time by typing help.
  1. make/overwrite file(1 line)      
  2. add to file (1 line)             
  3. delete file                      
