@@ -1,6 +1,6 @@
-#import modules
+#import requests
 import requests
-import random
+
 
 #print banner
 print('''                                 _        
