@@ -23,7 +23,7 @@ treshelp=''' Choose option by number!
  5. rename file
  6. make folder
  7. delete folder
- 8. Generate file uploader   
+ 8. add file uploader   
  9. ls
  '''
 print(treshelp)
