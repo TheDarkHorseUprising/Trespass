@@ -1,5 +1,5 @@
 # Trespass
-A php backdoor complete a python3 attacker client.
+A php backdoor complete a python3 attacker client. For another php-python web backdoor see: https://github.com/Zchap1/Python-Security/blob/master/Genesis.py
 
 # Options-You can view these at any time by typing help.
  1. make/overwrite file(1 line)      
